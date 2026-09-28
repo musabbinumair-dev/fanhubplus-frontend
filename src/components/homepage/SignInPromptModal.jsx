@@ -281,7 +281,7 @@ const SignInPromptModal = ({
     }
 
     const redirectUri = window.location.origin;
-    const googleOAuthUrl = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=token&scope=openid%20email%20profile&prompt=select_account`;
+    const googleOAuthUrl = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=id_token&scope=openid%20email%20profile&prompt=select_account&nonce=fanhub`;
 
     const popup = window.open(googleOAuthUrl, "google_login", "width=500,height=600,left=400,top=100");
 
