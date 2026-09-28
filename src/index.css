@@ -1,0 +1,106 @@
+@import "tailwindcss";
+
+@theme {
+  --font-heading: "Space Grotesk", sans-serif;
+  --font-body: "Plus Jakarta Sans", sans-serif;
+  --font-sans: "Plus Jakarta Sans", sans-serif;
+  --font-mono: "Space Grotesk", sans-serif;
+}
+
+:root {
+  --font-heading: "Space Grotesk", sans-serif;
+  --font-body: "Plus Jakarta Sans", sans-serif;
+}
+
+@layer base {
+  * {
+    border-color: #F0E8DD;
+  }
+  
+  html, body {
+    font-family: var(--font-body);
+    color: #231C14;
+    background-color: #FFFDF7;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+  }
+
+  p, span, a, button, input, textarea, select, label, table, th, td, li, ul, ol, div {
+    font-family: inherit;
+  }
+}
+
+.font-heading {
+  font-family: var(--font-heading) !important;
+}
+
+.font-body {
+  font-family: var(--font-body) !important;
+}
+
+/* Fallback mappings for legacy font classes to the new typography system */
+.font-titan,
+.font-bebas,
+.font-stencil-rank,
+.font-oswald {
+  font-family: var(--font-heading) !important;
+}
+
+.font-baloo,
+.font-sans {
+  font-family: var(--font-body) !important;
+}
+
+.font-mono {
+  font-family: var(--font-heading) !important;
+}
+
+/* Outline / Stencil ranking numbers matching reference image */
+.text-outline-rank {
+  color: transparent;
+  -webkit-text-stroke: 1.5px #6A7B8E;
+  text-shadow: none;
+}
+
+.group:hover .text-outline-rank {
+  -webkit-text-stroke: 1.5px #FF5F1F;
+  color: rgba(255, 95, 31, 0.08);
+}
+
+/* Scrollbar styling for playful light theme */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #FFFDF7;
+}
+::-webkit-scrollbar-thumb {
+  background: #EADDCF;
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #FF5F1F;
+}
+
+/* Liquid glassmorphic top bar effects */
+.liquid-glass-light {
+  background: rgba(255, 255, 255, 0.72) !important;
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5) !important;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03), inset 0 1px 0 rgba(255, 255, 255, 0.85);
+}
+
+.liquid-glass-dark {
+  background: rgba(18, 18, 18, 0.75) !important;
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}

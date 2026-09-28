@@ -1,0 +1,8 @@
+{
+  "name": "FanHub",
+  "description": "FanHub community platform: explore wikis, gaming news, active fandom discussions, and pop culture worlds.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
