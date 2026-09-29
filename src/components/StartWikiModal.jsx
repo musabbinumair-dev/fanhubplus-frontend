@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { X, Sparkles, BookOpen, PlusCircle } from "lucide-react";
+import { BASE_URL } from "../api/api";
 const StartWikiModal = ({
   isOpen,
   onClose,
@@ -11,7 +12,7 @@ const StartWikiModal = ({
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5001/api/categories")
+    fetch(`${BASE_URL}/categories`)
       .then((r) => r.json())
       .then((data) => {
         if (data.categories && data.categories.length > 0) {

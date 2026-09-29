@@ -5,7 +5,7 @@
  * to the Node/Express + MongoDB backend seamlessly later.
  */
 
-export const BASE_URL = (typeof import.meta !== "undefined" && import.meta.env && import.meta.env.VITE_API_URL) || "http://localhost:5001/api";
+export const BASE_URL = (typeof import.meta !== "undefined" && import.meta.env && import.meta.env.VITE_API_URL) || "http://localhost:5000/api";
 
 export const MOCK_CONTENT_ITEMS = [
   {
@@ -252,7 +252,7 @@ export const fetchContentItems = async () => {
   try {
     const res = await fetch(`${BASE_URL}/content`);
     const data = await res.json();
-    if (data.success && data.contents && data.contents.length > 0) {
+    if (data.success && Array.isArray(data.contents)) {
       return data.contents.map((item) => ({
         id: item._id,
         _id: item._id,
@@ -270,10 +270,11 @@ export const fetchContentItems = async () => {
         backgroundImage: item.thumbnailUrl || item.mediaUrl,
       }));
     }
+    return [];
   } catch (err) {
-    console.error("Fetch content error, using fallback:", err);
+    console.error("Fetch content error:", err);
+    return [];
   }
-  return Promise.resolve(MOCK_CONTENT_ITEMS);
 };
 
 export const fetchContentById = async (id) => {
@@ -306,7 +307,7 @@ export const fetchContentById = async (id) => {
     console.error("Fetch content by id error, using fallback:", err);
   }
   const fallback = MOCK_CONTENT_ITEMS.find((c) => c.id === id);
-  return Promise.resolve(fallback || MOCK_CONTENT_ITEMS[0]);
+  return Promise.resolve(fallback || null);
 };
 
 /* ========================================================================= */
